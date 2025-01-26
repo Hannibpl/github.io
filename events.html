@@ -37,7 +37,7 @@
                 <a class="nav-link" href="opportunities.html"><i class="fa-solid fa-hands-holding-circle"></i> Opportunities</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="events.html"><i class="fa-regular fa-calendar-days"></i> Events</a>
+                <a class="nav-link" aria-current="page" href="events.html"><i class="fa-regular fa-calendar-days"></i> Events</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="contact.html"><i class="fa-solid fa-phone"></i> Contact Us</a>
@@ -59,35 +59,27 @@
 </nav>
 
 <body>
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active c-item" data-bs-interval="10000">
-            <img src="images/Volunteer1.png" class="d-block w-100 c-img" alt="...">
-        </div>
-        <div class="carousel-item c-item" data-bs-interval="2000">
-            <img src="images/Volunteer2.png" class="d-block w-100 c-img" alt="...">
-        </div>
-        <div class="carousel-item c-item">
-            <img src="images/Volunteer3.png" class="d-block w-100 c-img" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
 <main class="container">
-    <h1 class="mb-5">Welcome to our Volunteer Contact home page </h1>
-    <button id="OpportunitiesBtn" class="btn btn-primary">Get Involved</button>
+    <h1 class="mb-5">Upcoming Events</h1>
+
+    <div class="mb-4">
+        <label for="eventFilter" class="form-label">Event Filter</label>
+        <select id="eventFilter" class="form-select">
+            <option value="all">All Events</option>
+            <option value="Fundraiser">All Upcoming Fundraisers</option>
+            <option value="Food Drive">All Upcoming Fundraisers</option>
+            <option value="Workshop">All Upcoming Workshop</option>
+            <option value="Cleanup">All Upcoming Cleanups</option>
+        </select>
+    </div>
+
+    <div id="calendar" class="d-flex flex-wrap"></div>
+
+    <div id="events" class="mt-4"></div>
 </main>
 
 <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/app.js"></script>
+<script src="./scripts/app.js"></script>
 </body>
 </html>
-

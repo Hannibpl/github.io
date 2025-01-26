@@ -34,7 +34,7 @@
                 <a class="nav-link" href="index.html"><i class="fa-solid fa-house-flag"></i> Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="opportunities.html"><i class="fa-solid fa-hands-holding-circle"></i> Opportunities</a>
+                <a class="nav-link" aria-current="page" href="opportunities.html"><i class="fa-solid fa-hands-holding-circle"></i> Opportunities</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="events.html"><i class="fa-regular fa-calendar-days"></i> Events</a>
@@ -59,35 +59,49 @@
 </nav>
 
 <body>
-<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active c-item" data-bs-interval="10000">
-            <img src="images/Volunteer1.png" class="d-block w-100 c-img" alt="...">
-        </div>
-        <div class="carousel-item c-item" data-bs-interval="2000">
-            <img src="images/Volunteer2.png" class="d-block w-100 c-img" alt="...">
-        </div>
-        <div class="carousel-item c-item">
-            <img src="images/Volunteer3.png" class="d-block w-100 c-img" alt="...">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
 
 <main class="container">
-    <h1 class="mb-5">Welcome to our Volunteer Contact home page </h1>
-    <button id="OpportunitiesBtn" class="btn btn-primary">Get Involved</button>
-</main>
+    <h1 class="mb-5">Future Volunteer Opportunities</h1>
 
+    <div id="opportunities-list" class="row">
+
+    </div>
+
+
+
+<div class="modal" id="signUpModal" tabindex="-1" aria-labelledby="signUpModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signUpModalLabel">Sign Up</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="signUpForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="role" class="form-label">Preferred Role</label>
+                        <input type="text" class="form-control" id="role" placeholder="Enter your role" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+                <div id="confirmation" class="alert alert-success mt-3 d-none" role="alert">
+                    Thank you for your contribution!
+            </div>
+        </div>
+    </div>
 <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./scripts/app.js"></script>
+<script src="./scripts/app.js"></script>
+
+</main>
 </body>
 </html>
-

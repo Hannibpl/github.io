@@ -6,43 +6,87 @@
     function DisplayHomePage() {
         console.log("Call DisplayHomePage...");
 
-        let aboutUsBtn = document.getElementById("AboutUsBtn");
-        aboutUsBtn.addEventListener("click", function () {
-            location.href = "about.html";
+        let OpportunitiesBtn = document.getElementById("OpportunitiesBtn");
+        OpportunitiesBtn.addEventListener("click", function () {
+            location.href = "opportunities.html";
+
         });
-
-        let MainContent = document.getElementsByTagName("main")[0];
-        //<p></p>
-        let MainParagraph = document.createElement("p");
-        MainParagraph.setAttribute("id", "MainParagraph");
-        MainParagraph.setAttribute("class", "mt-3");
-        MainParagraph.textContent = "This is my first paragraph";
-
-        // attach to the dom
-        MainContent.appendChild(MainParagraph);
-
-        let FirstString = "This is";
-        let SecondString = `${FirstString} is my second paragraph`;
-        MainParagraph.textContent = SecondString;
-
-        // attach to the dom
-        MainContent.appendChild(MainParagraph);
-
-
-        let DocumentBody = document.body;
-        //<article></p></article>
-        let Article = document.createElement("article");
-        let ArticleParagraph = `<p id="ArticleParagraph" class="mt-3">This is my article paragraph</p>`;
-        Article.setAttribute("class", "container");
-        Article.innerHTML = ArticleParagraph;
-        DocumentBody.appendChild(Article);
     }
+
+    // Java Array for volunteer opportunities
+    const opportunities = [
+        {title: 'Food Drive', description: 'A Food Drive event at whitby food bank', dateAndTime: '2025-01-27 12:00 AM', category: 'Fundraiser'},
+        {title: 'Cleanups', description: 'Clean up high park', dateAndTime: '2025-01-25 12:00 AM', category: 'Cleanup'},
+        {title: 'Workshop', description: 'Kids and community art workshop', dateAndTime: '2025-02-10 12:00 AM', category: 'Workshop'},
+        {title: 'Fundraiser', description: 'Fundraiser for letting the dogs wear wigs', dateAndTime: '2025-02-15 12:00 AM', category: 'Fundraiser'},
+    ];
+    // Dynamically showcases the volunteer opportunities
+    function showOpportunities() {
+        const opportunitiesList = document.getElementById("opportunities-list");
+
+        opportunities.forEach((opportunity, index) => {
+            const listItem = document.createElement("li");
+            listItem.classList.add('col-md-4', 'mb-3');
+
+            // Inner content for the opportunity card
+            const listContent = ` 
+            <div class="card">
+                 <div class="card-body">
+                <strong>${opportunity.title}</strong> <small class="text-muted">${opportunity.dateAndTime}</small>
+                  <p>${opportunity.description}</p> 
+                <button class="btn btn-primary" id="signup-btn-${index}">Sign Up</button>
+                 </div>
+            </div>
+            `;
+            listItem.innerHTML = listContent;
+            opportunitiesList.appendChild(listItem);
+
+            // Adding event for the sign up button
+            const signUpBtn = document.getElementById(`signup-btn-${index}`);
+            signUpBtn.addEventListener("click", function () {
+                // Call the modal page
+                const signupModal = new bootstrap.Modal(document.getElementById('signUpModal'));
+                signupModal.show();
+            });
+        });
+    }
+
+    // From submission for signing up
+    document.getElementById('signUpForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Stopping the form from submitting
+
+        // Getting Uses Inputs
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const role = document.getElementById("role").value;
+
+        // Validation for the inputs
+        if (name && email && role) {
+            // displaying the confirmation message
+            const confirmationMessage = document.getElementById("confirmation");
+            confirmationMessage.classList.remove('d-none'); // Showing the confirmation message
+
+            // Resetting the form after submission
+            document.getElementById('signUpForm').reset();
+
+            // An timeout functiom to hide the modal
+            setTimeout(function () {
+                const signupModal = bootstrap.Modal.getInstance(document.getElementById('signUpModal'));
+                signupModal.hide();
+
+            }, 2000);
+        } else {
+            alert("Please fill in all fields");
+        }
+    });
+    // calls funtion the opportunities when the page loads
+    document.addEventListener("DOMContentLoaded", showOpportunities);
 
     function DisplayProductsPage() {
         console.log("Call DisplayProductPage...");
     }
-    function DisplayServicesPage() {
-        console.log("Call DisplayServicesPage...");
+    function DisplayEventPage() {
+        console.log("Call DisplayEventPage...");
     }
     function DisplayAboutPage() {
         console.log("Call DisplayAboutPage...");
@@ -62,8 +106,8 @@
             case "Products":
                 DisplayProductsPage();
                 break;
-            case "Services":
-                DisplayServicesPage();
+            case "events":
+                DisplayEventPage();
                 break;
             case "Contact":
                 DisplayContactPage();
