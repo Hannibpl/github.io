@@ -1,3 +1,6 @@
+// Shane Walker
+// 100929693
+// 2025-02-23
 "use strict";
 
 //IIFE - Immediately Invoked Function Expression
