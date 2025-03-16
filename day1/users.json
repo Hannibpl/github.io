@@ -1,0 +1,22 @@
+{
+  "users" : [
+    {
+      "DisplayName" : "Beyonce",
+      "EmailAddress": "yonce@gmail.com",
+      "Username": "cowboycarter",
+      "Password": "12345"
+    },
+    {
+      "DisplayName" : "Rupaul Charles",
+      "EmailAddress": "rumail@gmail.com",
+      "Username": "rupaul",
+      "Password": "12345"
+    },
+    {
+      "DisplayName" : "admin",
+      "EmailAddress": "admin@gmail.com",
+      "Username": "admin1",
+      "Password": "12345"
+    }
+  ]
+}
