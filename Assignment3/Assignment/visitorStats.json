@@ -1,0 +1,7 @@
+[
+  {"date": "2022-01-01", "visits": 100, "signups": 20},
+  {"date": "2022-01-02", "visits": 120, "signups": 25},
+  {"date": "2022-01-03", "visits": 140, "signups": 30},
+  {"date": "2022-01-04", "visits": 180, "signups": 35},
+  {"date": "2022-01-01", "visits": 200, "signups": 40}
+]
